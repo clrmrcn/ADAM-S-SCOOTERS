@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Add a new scooter</h1>
+  <%= simple_form_for(@scooter) do |f| %>
+    <%= f.input :model %>
+    <%= f.input :description %>
+    <%= f.submit %>
+  <% end %>
+  <%= console %>
+</div>
