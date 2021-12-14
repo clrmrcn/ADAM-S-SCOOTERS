@@ -1,16 +1,26 @@
 <div class="container">
   <h1>Welcome <%= @user.username %></h1>
 
-  <h3>Here are your bookings : </h3>
+  <h3>People want to rent your scooter : </h3>
   <ul>
-    <% @bookings.each do |booking| %>
+    <% @bookings_demands.each do |booking| %>
       <li>
-        <%= booking.scooter.model %>
-        <%= booking.start_date %>
-        <%= booking.end_date %>
-        <%= booking.status %>
-        <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} %>
-        <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} %>
+        <span>Booking for <%= booking.scooter.model %></span>
+        <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
+        <span>Status: <%= booking.status %></span>
+        <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} if booking.status != 'Accepted'%>
+        <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} if booking.status != 'Declined'%>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3>Here are the bookings requests you made: </h3>
+  <ul>
+    <% @bookings_requests.each do |booking| %>
+      <li>
+        <span>Booking for <%= booking.scooter.model %></span>
+        <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
+        <span>Status: <%= booking.status %></span>
       </li>
     <% end %>
   </ul>
