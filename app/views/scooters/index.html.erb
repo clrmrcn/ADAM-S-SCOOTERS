@@ -3,19 +3,26 @@
 
 
 <div class="container_cards">
-
-<% @scooters.each do |scooter| %>
-<div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Trotinette:<%= scooter.model %></h2>
-      <p>Descrtiption: <%= scooter.description %> <br>
-      Rented by :<%= scooter.user.username %>  </p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
+  <% @scooters.each do |scooter| %>
+    <div class="card-trip">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+         <h2>Trotinette:<%= scooter.model %></h2>
+         <p>Descrtiption: <%= scooter.description %> <br>
+          Rented by :<%= scooter.user.username %>  </p>
+          <%= link_to 'Edit', edit_scooter_path(scooter) %>
+          <%= link_to 'Remove', scooter_path(scooter),
+                    method: :delete,
+                   data: {confirm: 'Are you sure?'}
+           %>
+       </div>
+       <h2 class="card-trip-pricing">£99.99</h2>
+       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+   </div>
 </div>
 <% end %>
+  <%= link_to 'Add a new scooter', new_scooter_path %>
 </div>
+</div>
+
