@@ -6,4 +6,12 @@
       <li><%= scooter.model %> rented by <%= scooter.user.username %> </li>
     <% end %>
   </ul>
+   <div class="card-actions">
+     <%= link_to 'Edit', scooter_path(scooter) %>
+     <%= link_to 'Remove', scooter_path(scooter)
+                    method: :delete,
+                   data: {confirm: 'Are you sure?'},
+      %>
+  </div>
+</div>
 </div>
