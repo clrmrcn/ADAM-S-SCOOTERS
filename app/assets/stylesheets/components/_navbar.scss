@@ -1,10 +1,41 @@
+.navbar {
+    text-decoration: none;
+}
+
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  position: sticky;
+  text-decoration: none;
+  background-color: black;
+  transition: 0.5s background-color ease;
+}
+
+.navbar-lewagon-white {
+  background-color: transparent !important;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+}
+
+.navbar-lewagon {
+  background-color: black;
+  transition: 0.2s background-color ease;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+  color: #19cb7f;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  text-decoration: none;
+  color: #19cb7f;
 }
 
 .navbar-lewagon .navbar-brand img {

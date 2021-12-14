@@ -1,0 +1,30 @@
+.banner-background {
+  background-color: black;
+  padding: 20px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+
+.banner {
+  background-size: cover;
+  background-position: top;
+  padding: 180px 35px;
+  margin: 30px;
+  border-radius: 10px;
+  background-image: url('https://www.bazaaretcompagnie.com/wp-content/uploads/trottinette-electrique.jpg')
+}
+
+.banner h2 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  padding: 10px 0px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}

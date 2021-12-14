@@ -1,12 +1,11 @@
 // Specific CSS for your home-page
 
-
-.home-container {
-  display: flex;
-  justify-content: center;
-}
-.home-img {
-  width: 75%;
-  margin: 15px;
-  border-radius: 15px;
+.header-container{
+  padding-left: 64px;
+  padding-top: 85px;
+  // top: 95px;
+  // left: 54px;
+  h1 {
+     color: rgba(0,0,0,1);
+   }
 }
