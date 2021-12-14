@@ -1,9 +1,21 @@
 <div class="container">
   <h1>All Scooters</h1>
 
-  <ul>
-    <% @scooters.each do |scooter| %>
-      <li><%= scooter.model %> rented by <%= scooter.user.username %> </li>
-    <% end %>
-  </ul>
+
+<div class="container_cards">
+
+<% @scooters.each do |scooter| %>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Trotinette:<%= scooter.model %></h2>
+      <p>Descrtiption: <%= scooter.description %> <br>
+      Rented by :<%= scooter.user.username %>  </p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+<% end %>
 </div>
