@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Welcome <%= @user.username %></h1>
+
+  <h3>Here are your bookings : </h3>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        <%= booking.scooter.model %>
+        <%= booking.start_date %>
+        <%= booking.end_date %>
+        <%= link_to 'Accept', accept_booking_path(booking), method: :accept, data: {confirm: 'Are you sure?'} %>
+        <%= raise %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
