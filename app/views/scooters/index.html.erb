@@ -1,20 +1,21 @@
 <div class="container">
-  <h1>All Scooters</h1>
+  <h1><strong>Choice your scooter</strong></h1>
 
 
-<div class="container_cards">
+<div class="container_cards row w-100">
   <% @scooters.each do |scooter| %>
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-trip col-12 col-md-6 col-lg-3">
+      <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="card-trip-infos">
         <div>
          <h2>Trotinette:<%= scooter.model %></h2>
          <p>Descrtiption: <%= scooter.description %> <br>
           Rented by :<%= scooter.user.username %>  </p>
-          <%= link_to 'Edit', edit_scooter_path(scooter) %>
+          <%= link_to 'Edit', edit_scooter_path(scooter) ,class: "btn btn-primary" %>
           <%= link_to 'Remove', scooter_path(scooter),
                     method: :delete,
-                   data: {confirm: 'Are you sure?'}
+                   data: {confirm: 'Are you sure?'},
+                   class: "btn btn-warning"
            %>
        </div>
        <h2 class="card-trip-pricing">£99.99</h2>
@@ -22,7 +23,6 @@
    </div>
 </div>
 <% end %>
-  <%= link_to 'Add a new scooter', new_scooter_path %>
 </div>
+  <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
 </div>
-
