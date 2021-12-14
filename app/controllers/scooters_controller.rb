@@ -1,5 +1,5 @@
 class ScootersController < ApplicationController
-  # before_action set_scooter only: [--,--,--]
+  # before_action set_scooter only: [:show, :create,]
   def index
     @scooters = Scooter.all
   end
