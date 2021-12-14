@@ -1,0 +1,9 @@
+<div class="container">
+<h1> When do you want to rent <%= @scooter.model  %></h1>
+
+ <%= simple_form_for([@scooter, @booking]) do |f| %>
+    <%= f.input :start_date  %>
+    <%= f.input :end_date  %>
+    <%= f.submit %>
+  <% end %>
+</div>
