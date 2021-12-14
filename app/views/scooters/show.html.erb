@@ -1,4 +1,6 @@
 <div class="container">
   <h1>You're looking at <%= @scooter.model %></h1>
   <%= @scooter.description %>
+  <%= console %>
+  <%= link_to 'Book this scooter', new_scooter_booking_path(@scooter) %>
 </div>

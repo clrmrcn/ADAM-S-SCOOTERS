@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :scooters do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:destroy, :accept, :decline]
+  resources :bookings, only: [:destroy] do
+    member do
+      patch :accept, :decline
+    end
+  end
+
+  get '/profile', to: 'dashboard#profile'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

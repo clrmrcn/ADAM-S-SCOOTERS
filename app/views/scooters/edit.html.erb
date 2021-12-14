@@ -1,0 +1,10 @@
+<div class="container">
+   <div class="col-6 m-auto">
+    <h1> Edit a scooter </h1>
+    <%= simple_form_for(@scooter) do |f| %>
+      <%= f.input :model %>
+      <%= f.input :description %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
