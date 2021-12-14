@@ -1,9 +1,6 @@
 class ScootersController < ApplicationController
-<<<<<<< HEAD
   skip_before_action :authenticate_user!, only: :index
-=======
-  # before_action set_scooter only: [:show, :create,]
->>>>>>> b0d60c10dd2111c44b04f4b49353d41f9a9d9f59
+
   def index
     @scooters = Scooter.all
   end
@@ -34,8 +31,9 @@ class ScootersController < ApplicationController
 
   def update
     @user = current_user
-    @scooter = @user.scooter.find(params[:id])
-    if @scooter.update_attributes(scooter_params)
+    @scooter = Scooter.find(params[:id])
+    @scooter.update(scooter_params)
+    if @scooter.save
       flash[:success] = "Scooter updated !"
       redirect_to scooters_path
     else

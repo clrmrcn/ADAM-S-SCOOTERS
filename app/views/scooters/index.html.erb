@@ -3,15 +3,15 @@
 
   <ul>
     <% @scooters.each do |scooter| %>
-      <li><%= scooter.model %> rented by <%= scooter.user.username %> </li>
+      <li>
+        <%= scooter.model %> rented by <%= scooter.user.username %>
+        <%= link_to 'Edit', edit_scooter_path(scooter) %>
+        <%= link_to 'Remove', scooter_path(scooter),
+                    method: :delete,
+                   data: {confirm: 'Are you sure?'}
+        %>
+      </li>
     <% end %>
   </ul>
-   <div class="card-actions">
-     <%= link_to 'Edit', scooter_path(scooter) %>
-     <%= link_to 'Remove', scooter_path(scooter)
-                    method: :delete,
-                   data: {confirm: 'Are you sure?'},
-      %>
-  </div>
-</div>
+  <%= link_to 'Add a new scooter', new_scooter_path %>
 </div>
