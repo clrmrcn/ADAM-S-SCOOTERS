@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @booking = Booking.new
     @scooter = Scooter.find(params[:scooter_id])

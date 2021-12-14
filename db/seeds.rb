@@ -14,13 +14,45 @@ require 'faker'
   #  scooters = Scooter.new(model: "mbk", description: "sa marche bien", user_id: users.id)
   #  scooters.save
   # end
-  10.times do
-   users = User.new(email: Faker::Internet.email, password: Faker::Lorem.words(number: 7), username: Faker::FunnyName.unique.name)
-   users.save
-   scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: users.id)
+# scooter_photos = [(File.open('app/assets/images/scooter1.jpeg')), (File.open('app/assets/images/scooter2.jpeg')),(File.open('app/assets/images/scooter3.jpeg')),(File.open('app/assets/images/scooter3.jpeg')),(File.open('app/assets/images/scooter4.jpeg')),(File.open('app/assets/images/scooter5.jpeg')),(File.open('app/assets/images/scooter6.jpeg')),(File.open('app/assets/images/scooter7.jpeg')),(File.open('app/assets/images/scooter8.jpeg')),(File.open('app/assets/images/scooter9.jpeg')),(File.open('app/assets/images/scooter10.jpeg'))]
+
+  user1 = User.new(email: "bibi@gamil.com", password: "azerty", username: "bibi")
+    user1.save
+     scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user1.id )
+   scooter1 = File.open('app/assets/images/scooter1.jpeg')
+   scooters.photo.attach(io: scooter1, filename: 'scooter1.jpeg', content_type: 'image/jpeg')
    scooters.save
-  end
-puts "db #{User.count}create sans probleme"
+
+    user2 = User.new(email: "baba@gamil.com", password: "azerty", username: "baba")
+    user2.save
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user2.id )
+   scooter2 = File.open('app/assets/images/scooter2.jpeg')
+   scooters.photo.attach(io: scooter2, filename: 'scooter2.jpeg', content_type: 'image/jpeg')
+   scooters.save
+
+    user3 = User.new(email: "bobo@gamil.com", password: "azerty", username: "bobo")
+    user3.save
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user3.id )
+   scooter3 = File.open('app/assets/images/scooter3.jpeg')
+   scooters.photo.attach(io: scooter3, filename: 'scooter3.jpeg', content_type: 'image/jpeg')
+   scooters.save
+
+    user4 = User.new(email: "bebe@gamil.com", password: "azerty", username: "bebe")
+    user4.save
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user4.id )
+   scooter4 = File.open('app/assets/images/scooter4.jpeg')
+   scooters.photo.attach(io: scooter4, filename: 'scooter4.jpeg', content_type: 'image/jpeg')
+   scooters.save
+
+    # users = User.new(email: Faker::Internet.email, password: Faker::Lorem.words(number: 7), username: Faker::FunnyName.unique.name)
+    # users.save
+
+  #  scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: users.id )
+  #  scooter1 = File.open('app/assets/images/scooter1.jpeg')
+  #  scooters.photo.attach(io: scooter1, filename: 'scooter1.jpeg', content_type: 'image/jpeg')
+  #  scooters.save
+  # end
+puts "db #{User.count}user create sans probleme"
 
 
 
