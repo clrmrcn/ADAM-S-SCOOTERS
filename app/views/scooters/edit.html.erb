@@ -4,6 +4,7 @@
     <%= simple_form_for(@scooter) do |f| %>
       <%= f.input :model %>
       <%= f.input :description %>
+      <%= f.input :photo, as: :file %>
       <%= f.submit %>
     <% end %>
   </div>

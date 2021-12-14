@@ -10,4 +10,15 @@
 
 // Your CSS partials
 @import "components/index";
+@import "pages/home";
 @import "pages/index";
+@import "scooters/index";
+@import "pages/banner";
+@import "pages/button";
+@import "pages/card";
+@import "pages/footer";
+
+body {
+  background-color: white;
+  font-family: BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
