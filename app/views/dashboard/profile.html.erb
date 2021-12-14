@@ -8,10 +8,10 @@
         <%= booking.scooter.model %>
         <%= booking.start_date %>
         <%= booking.end_date %>
-        <%= link_to 'Accept', accept_booking_path(booking), method: :accept, data: {confirm: 'Are you sure?'} %>
-        <%= raise %>
+        <%= booking.status %>
+        <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} %>
+        <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} %>
       </li>
     <% end %>
   </ul>
-
 </div>
