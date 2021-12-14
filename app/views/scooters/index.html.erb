@@ -5,11 +5,15 @@
     <% @scooters.each do |scooter| %>
       <li>
         <%= scooter.model %> rented by <%= scooter.user.username %>
+        <% if policy(scooter).edit? %>
         <%= link_to 'Edit', edit_scooter_path(scooter) %>
+        <%  end  %>
+        <% if policy(scooter).destroy? %>
         <%= link_to 'Remove', scooter_path(scooter),
                     method: :delete,
                    data: {confirm: 'Are you sure?'}
         %>
+        <% end %>
       </li>
     <% end %>
     <%= flash[:success] %>
