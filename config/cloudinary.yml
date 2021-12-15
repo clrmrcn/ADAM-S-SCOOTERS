@@ -1,0 +1,6 @@
+development:
+  cloud_name: "dzcfsbbad"
+  api_key: "925824972953933"
+  api_secret: "vjrOplIRFmg2H3yVdEYnymncpmI"
+  enhance_image_tag: true
+  static_file_support: false
