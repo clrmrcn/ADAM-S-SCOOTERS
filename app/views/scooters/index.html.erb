@@ -1,7 +1,6 @@
 <div class="container">
   <h1><strong>Choice your scooter</strong></h1>
 
-
   <div class="container_cards row w-100">
     <% @scooters.each do |scooter| %>
       <div class="card-trip col-12 col-md-6 col-lg-3">
@@ -26,5 +25,8 @@
       </div>
     <% end %>
   </div>
+
+
   <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
 </div>
+<%= console %>
