@@ -3,6 +3,7 @@
 //   console.log(headers)
 //   headers.forEach((header) =>{
 //     header.addEventListener('click', (event) => {
+//       alert('click')
 //       const evenement = event.dataset.class
 //       event.currentTarget.classList.add('hidden')
 //       const text = document.querySelector(`.${evenement}`)

@@ -1,0 +1,29 @@
+
+
+<section class="product">
+	<div class="product__photo">
+		<div class="photo-container">
+			<div class="photo-main">
+        <%= cl_image_tag scooter.photo.key, height: 500, width: 400, crop: :fill %>
+			</div>
+		</div>
+	</div>
+	<div class="product__info">
+		<div class="title">
+			<h1><%= scooter.model %></h1>
+		</div>
+		<div class="price">
+			<span> Price</span>
+		</div>
+		<div class="description">
+			<h3>Description</h3>
+			<ul>
+				<li>Description 1</li>
+				<li>Description 2</li>
+				<li>Description 3</li>
+				<li>Description 4</li>
+			</ul>
+		</div>
+		<button class="buy--btn">ADD TO CART</button>
+	</div>
+</section>

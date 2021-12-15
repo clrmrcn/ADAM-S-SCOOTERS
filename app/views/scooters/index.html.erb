@@ -2,7 +2,7 @@
   <h1><strong>Choice your scooter</strong></h1>
   <div class="container_cards row w-100">
     <% @scooters.each do |scooter| %>
-      <div class="card-trip col-12 col-md-6 col-lg-3">
+      <div class="card-trip col-6 col-md-4 col-lg-4">
         <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
           <div>
@@ -29,3 +29,14 @@
     <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
   </div>
  </div>
+
+
+<% @scooters.each do |scooter|  %>
+  <%= render 'card', scooter: scooter %>
+<% end %>
+
+
+
+<footer>
+	<p>Design from <a href="https://dribbble.com/shots/5216438-Daily-UI-012">dribbble shot</a> of <a href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a></p>
+</footer>
