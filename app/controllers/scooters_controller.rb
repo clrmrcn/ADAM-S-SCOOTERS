@@ -7,6 +7,7 @@ class ScootersController < ApplicationController
 
   def show
     @scooter = Scooter.find(params[:id])
+    authorize @scooter
   end
 
   def new
