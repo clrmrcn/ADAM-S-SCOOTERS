@@ -10,7 +10,9 @@
         <div>
          <h2><strong><%= scooter.model %></strong></h2>
          <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
-          <strong>Rented by :</strong><%= scooter.user.username %>  </p>
+          <strong>Rented by :</strong><%= scooter.user.username %> <br>
+          <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %>
+          </p>
           <%= link_to 'Edit', edit_scooter_path(scooter) ,class: "btn btn-primary" %>
           <%= link_to 'Remove', scooter_path(scooter),
                     method: :delete,
@@ -18,7 +20,7 @@
                    class: "btn btn-danger"
            %>
        </div>
-       <h2 class="card-trip-pricing">£99.99</h2>
+       <h2 class="card-trip-pricing"><%= scooter.price %>€/J</h2>
        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
    </div>
 </div>
@@ -26,3 +28,4 @@
 </div class= "button-add">
   <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
 </div>
+<%= console %>
