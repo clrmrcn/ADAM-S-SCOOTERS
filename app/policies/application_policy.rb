@@ -25,7 +25,7 @@ class ApplicationPolicy
   end
 
   def update?
-    true 
+    true
   end
 
   def edit?

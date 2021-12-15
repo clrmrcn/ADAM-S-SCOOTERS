@@ -1,26 +1,6 @@
 <div class="container">
   <h1><strong>Choice your scooter</strong></h1>
 
-<<<<<<< HEAD
-  <ul>
-    <% @scooters.each do |scooter| %>
-      <li>
-        <%= scooter.model %> rented by <%= scooter.user.username %>
-        <% if policy(scooter).edit? %>
-        <%= link_to 'Edit', edit_scooter_path(scooter) %>
-        <%  end  %>
-        <% if policy(scooter).destroy? %>
-        <%= link_to 'Remove', scooter_path(scooter),
-                    method: :delete,
-                   data: {confirm: 'Are you sure?'}
-        %>
-        <% end %>
-      </li>
-    <% end %>
-    <%= flash[:success] %>
-  </ul>
-  <%= link_to 'Add a new scooter', new_scooter_path %>
-=======
 
 <div class="container_cards row w-100">
   <% @scooters.each do |scooter| %>
@@ -45,5 +25,4 @@
 <% end %>
 </div>
   <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
->>>>>>> 898d940f90c67da7eb76992880041253bf4f196e
 </div>

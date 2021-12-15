@@ -31,8 +31,6 @@ class ScootersController < ApplicationController
     @scooter = Scooter.find(params[:id])
     authorize @scooter
     @user = current_user
-
-
   end
 
   def update
@@ -45,7 +43,6 @@ class ScootersController < ApplicationController
     else
       render action: :edit
     end
-
   end
 
   def destroy
