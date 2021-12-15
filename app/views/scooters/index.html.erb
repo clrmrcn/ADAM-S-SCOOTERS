@@ -8,17 +8,18 @@
         <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
           <div>
-          <h2><strong><%= scooter.model %></strong></h2>
-          <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
-            <strong>Rented by :</strong><%= scooter.user.username %> <br>
-            <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %>
+            <h2><%= link_to "#{scooter.model}", scooter_path(scooter) %></h2>
+            <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
+              <strong>Rented by :</strong><%= scooter.user.username %> <br>
+              <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %>
             </p>
-            <%= link_to 'Edit', edit_scooter_path(scooter) ,class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_scooter_path(scooter), class: "btn btn-primary" if scooter.user == current_user %>
             <%= link_to 'Remove', scooter_path(scooter),
                       method: :delete,
                     data: {confirm: 'Are you sure?'},
-                    class: "btn btn-danger"
+                    class: "btn btn-danger" if scooter.user == current_user
             %>
+            <%= link_to 'Book this scooter', new_scooter_booking_path(scooter), class: "btn btn-primary" unless scooter.user == current_user %>
           </div>
           <h2 class="card-trip-pricing"><%= scooter.price %>€/J</h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
