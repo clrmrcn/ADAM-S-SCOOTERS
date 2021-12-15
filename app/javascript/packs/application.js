@@ -24,6 +24,7 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { initProfile } from '../components/profile';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -35,4 +36,5 @@ document.addEventListener('turbolinks:load', () => {
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
+  initProfile()
 });
