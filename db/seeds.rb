@@ -18,42 +18,42 @@ require 'faker'
 
   user1 = User.new(email: "bibi@gmail.com", password: "azerty", username: "bibi")
     user1.save
-     scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user1.id , price:17 , available: Date.today + 4.days)
+     scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user1.id , price:17 , available: Date.today + 4.days, address:'16 Villa Gaudelet, Paris')
    scooter1 = File.open('app/assets/images/scooter6.jpeg')
    scooters.photo.attach(io: scooter1, filename: 'scooter6.jpeg', content_type: 'image/jpeg')
    scooters.save
 
     user2 = User.new(email: "baba@gmail.com", password: "azerty", username: "baba")
     user2.save
-      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user2.id, price:18 , available: Date.today + 5.days)
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user2.id, price:18 , available: Date.today + 5.days, address:'36 Avenue de la Pointe Rouge,Marseille')
    scooter2 = File.open('app/assets/images/scooter2.jpeg')
    scooters.photo.attach(io: scooter2, filename: 'scooter2.jpeg', content_type: 'image/jpeg')
    scooters.save
 
     user3 = User.new(email: "bobo@gmail.com", password: "azerty", username: "bobo")
     user3.save
-      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user3.id, price:19 , available: Date.today + 6.days )
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user3.id, price:19 , available: Date.today + 6.days, address:'32 Avenue de Toulon,Marseille')
    scooter3 = File.open('app/assets/images/scooter3.jpeg')
    scooters.photo.attach(io: scooter3, filename: 'scooter3.jpeg', content_type: 'image/jpeg')
    scooters.save
 
     user4 = User.new(email: "bebe@gmail.com", password: "azerty", username: "bebe")
     user4.save
-      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user4.id, price:16 , available: Date.today + 3.days)
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user4.id, price:16 , available: Date.today + 3.days, address:'34 Allée Turcat Méry,Marseille')
    scooter4 = File.open('app/assets/images/scooter7.jpeg')
    scooters.photo.attach(io: scooter4, filename: 'scooter7.jpeg', content_type: 'image/jpeg')
    scooters.save
 
    user5 = User.new(email: "bubu@gmail.com", password: "azerty", username: "bubu")
     user5.save
-      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user5.id, price:15 , available: Date.today + 2.days )
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user5.id, price:15 , available: Date.today + 2.days, address:'17 Rue Henry Cousinou,Marseille')
    scooter5 = File.open('app/assets/images/scooter10.jpeg')
    scooters.photo.attach(io: scooter5, filename: 'scooter10.jpeg', content_type: 'image/jpeg')
    scooters.save
 
    user6 = User.new(email: "bzbz@gmail.com", password: "azerty", username: "bzbz")
     user6.save
-      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user6.id, price:14 , available: Date.today + 1.days )
+      scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user6.id, price:14 , available: Date.today + 1.days, address:'44 Avenue du Prado,Marseille' )
    scooter6 = File.open('app/assets/images/scooter8.jpeg')
    scooters.photo.attach(io: scooter6, filename: 'scooter8.jpeg', content_type: 'image/jpeg')
    scooters.save

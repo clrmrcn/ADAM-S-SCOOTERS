@@ -11,7 +11,8 @@
           <h2><strong><%= scooter.model %></strong></h2>
           <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
             <strong>Rented by :</strong><%= scooter.user.username %> <br>
-            <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %>
+            <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %> <br>
+            <strong>Address :</strong><%= scooter.address %>
             </p>
             <%= link_to 'Edit', edit_scooter_path(scooter) ,class: "btn btn-primary" %>
             <%= link_to 'Remove', scooter_path(scooter),
@@ -30,3 +31,7 @@
     <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
   </div>
  </div>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
