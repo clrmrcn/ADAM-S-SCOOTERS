@@ -6,6 +6,13 @@
         <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-trip-infos">
           <div>
+
+          <h2><strong><%= scooter.model %></strong></h2>
+          <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
+            <strong>Rented by :</strong><%= scooter.user.username %> <br>
+            <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %> <br>
+            <strong>Address :</strong><%= scooter.address %>
+
             <h2><%= link_to "#{scooter.model}", scooter_path(scooter) %></h2>
             <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
               <strong>Rented by :</strong><%= scooter.user.username %> <br>
@@ -30,6 +37,13 @@
   </div>
  </div>
 
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+
 
 <% @scooters.each do |scooter|  %>
   <%= render 'card', scooter: scooter %>
@@ -40,3 +54,4 @@
 <footer>
 	<p>Design from <a href="https://dribbble.com/shots/5216438-Daily-UI-012">dribbble shot</a> of <a href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a></p>
 </footer>
+

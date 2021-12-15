@@ -3,6 +3,12 @@ class ScootersController < ApplicationController
 
   def index
     @scooters = policy_scope(Scooter)
+    @markers = @scooters.geocoded.map do |scooter|
+      {
+        lat: scooter.latitude,
+        lng: scooter.longitude
+      }
+    end
   end
 
   def show
@@ -60,6 +66,6 @@ class ScootersController < ApplicationController
   end
 
   def scooter_params
-    params.require(:scooter).permit(:model, :description, :photo, :price, :available)
+    params.require(:scooter).permit(:model, :description, :photo, :price, :available, :address)
   end
 end
