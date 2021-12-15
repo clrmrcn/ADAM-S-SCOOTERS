@@ -7,6 +7,6 @@
     <%= f.submit %>
   <% end %>
 </div>
-<% if policy(Booking).create? %>
+<% if policy(Booking).new? %>
   <%= link_to "Add a new scooter", new_scooter_path %>
 <% end %>
