@@ -10,10 +10,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def accept?
-    record.user == user
+    record.scooter.user == user
   end
 
   def decline?
-    record.user == user
+    record.scooter.user == user
   end
 end
