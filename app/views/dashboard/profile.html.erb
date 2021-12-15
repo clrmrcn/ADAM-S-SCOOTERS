@@ -48,19 +48,19 @@
         <div id="ufo-home" class="ufo-bar2-col2 ufo-bar2-block">
             <div class="ufo-bar2-col2-inner flexbox">
                 <span><i class="uil uil-trophy"></i></span>
-                <h3 class>Reservations</h3>
+                <h3 onClick="toggleContent()" data-class="reservation-description">Reservations</h3>
             </div>
         </div>
         <div id="ufo-videos" class="ufo-bar2-col3 ufo-bar2-block">
             <div class="ufo-bar2-col3-inner flexbox">
                 <span><i class="uil uil-star"></i></span>
-                <h3>Requests</h3>
+                <h3 onClick="toggleContent()" data-class="requests-description">Requests</h3>
             </div>
         </div>
         <div id="ufo-about" class="ufo-bar2-col6 ufo-bar2-block">
             <div class="ufo-bar2-col6-inner flexbox">
                 <span><i class="uil uil-user"></i></span>
-                <h3>About</h3>
+                <h3 onClick="toggleContent()" data-class="about-description">About</h3>
             </div>
         </div>
         <div class="ufo-bar2-col7">
@@ -68,9 +68,8 @@
     </div>
 </main>
 
-
 <div class="content-container">
-      <div class="reservations-container">
+      <div id="reservations" class="tab_content">
       <div class="reservations">
          <h1>hello</h1>
       </div>
@@ -84,8 +83,18 @@
       </li>
   <% end %>
     </div>
-        <div class="requests-container">
-        <h1>hello</h1>
+        <div id="requests" class="tab_content no_show">
+        <h1>hello requests</h1>
+          <% @bookings_requests.each do |booking| %>
+        <li>
+          <span>Booking for <%= booking.scooter.model %></span>
+          <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
+          <span>Status: <%= booking.status %></span>
+        </li>
+      <% end %>
+    </div>
+         <div id="about" class="tab_content no_show">
+        <h1>hello about</h1>
           <% @bookings_requests.each do |booking| %>
         <li>
           <span>Booking for <%= booking.scooter.model %></span>
@@ -95,3 +104,17 @@
       <% end %>
     </div>
 </div>
+
+<script>
+  const toggleContent = () => {
+    const toggleTitle = event.currentTarget.innerHTML.toLowerCase()
+    console.log(toggleTitle)
+    const headers = document.querySelectorAll('.tab_content')
+    headers.forEach((header) => {
+      header.classList.add('no_show')
+    })
+    const toShow = document.getElementById(toggleTitle)
+    toShow.classList.remove('no_show')
+
+  }
+</script>

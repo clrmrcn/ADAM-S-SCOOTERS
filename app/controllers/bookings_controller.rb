@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @scooter = Scooter.find(params[:scooter_id])
+    authorize @booking
   end
 
   def create
@@ -9,6 +10,7 @@ class BookingsController < ApplicationController
     @scooter = Scooter.find(params[:scooter_id])
     @booking.scooter = @scooter
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to root_path, notice: "#{@scooter.user.username} has been notified and will answer rapidly"
     else
@@ -18,6 +20,7 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.status = 'Accepted'
     if @booking.save
       redirect_to profile_path
@@ -28,6 +31,7 @@ class BookingsController < ApplicationController
 
   def decline
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.status = 'Declined'
     if @booking.save
       redirect_to profile_path
