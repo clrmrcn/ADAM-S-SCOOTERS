@@ -8,14 +8,14 @@
       <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="card-trip-infos">
         <div>
-         <h2>Trotinette:<%= scooter.model %></h2>
-         <p>Descrtiption: <%= scooter.description %> <br>
-          Rented by :<%= scooter.user.username %>  </p>
+         <h2><strong><%= scooter.model %></strong></h2>
+         <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
+          <strong>Rented by :</strong><%= scooter.user.username %>  </p>
           <%= link_to 'Edit', edit_scooter_path(scooter) ,class: "btn btn-primary" %>
           <%= link_to 'Remove', scooter_path(scooter),
                     method: :delete,
                    data: {confirm: 'Are you sure?'},
-                   class: "btn btn-warning"
+                   class: "btn btn-danger"
            %>
        </div>
        <h2 class="card-trip-pricing">£99.99</h2>
@@ -23,7 +23,5 @@
    </div>
 </div>
 <% end %>
-</div>
-<%= console %>
   <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
 </div>
