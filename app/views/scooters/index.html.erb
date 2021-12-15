@@ -11,12 +11,16 @@
          <h2>Trotinette:<%= scooter.model %></h2>
          <p>Descrtiption: <%= scooter.description %> <br>
           Rented by :<%= scooter.user.username %>  </p>
+          <% if policy(scooter).edit? %>
           <%= link_to 'Edit', edit_scooter_path(scooter) ,class: "btn btn-primary" %>
+          <% end %>
+          <% if policy(scooter).destroy?%>
           <%= link_to 'Remove', scooter_path(scooter),
                     method: :delete,
                    data: {confirm: 'Are you sure?'},
                    class: "btn btn-warning"
            %>
+           <% end %>
        </div>
        <h2 class="card-trip-pricing">£99.99</h2>
        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
@@ -26,3 +30,4 @@
 </div>
   <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
 </div>
+
