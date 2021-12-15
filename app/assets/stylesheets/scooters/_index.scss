@@ -1,6 +1,7 @@
 .container_cards {
   // display: flex;
   // justify-content: center;
+font-family: 'Courgette', cursive;
 
 
 
@@ -12,6 +13,18 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 1%;
   border-radius: 15px;
+  font-family: 'Courgette', cursive;
+
+
+
+}
+.card-trip:hover {
+   -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+       margin:5% ;
+       transition-duration: 500ms;
+
 
 
 }
@@ -20,6 +33,7 @@
   height: 200px;
   width: 100%;
   object-fit: cover;
+  border-radius: 15px;
 
 }
 
@@ -27,6 +41,11 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  font-family: 'Courgette', cursive;
+  margin:5%;
+  display: flex;
+  justify-content: center ;
+
 }
 
 .card-trip p {
@@ -49,4 +68,11 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.button-add > .btn-primary {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
 }
