@@ -1,29 +1,45 @@
 
 
-<section class="product">
-	<div class="product__photo">
-		<div class="photo-container">
-			<div class="photo-main">
-        <%= cl_image_tag scooter.photo.key, height: 500, width: 400, crop: :fill %>
+
+
+
+
+
+ <section class="product">
+
+   <% @scooters.each do |scooter|  %>
+			<div class="photo-album">
+          <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>
 			</div>
+        <div class="description">
+        <h3>Description</h3>
+        <%= scooter.description %>
+        <br>
+        <h3>Rented by</h3>
+        <%= scooter.user.username %>
+        <h3>Address</h3>
+        <%= scooter.address %>
+        <h3>Availability</h3>
+        <%= scooter.available&.strftime("%d/%m/%Y") %>
+               <%= link_to 'Add a new scooter', new_scooter_path, class: "buy--btn"%>
+              <%= link_to 'Edit', edit_scooter_path(scooter), class: "buy--btn" if scooter.user == current_user %>
+            <%= link_to 'Remove', scooter_path(scooter),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'},
+                    class: "buy--btn" if scooter.user == current_user
+            %>
+            <%= link_to 'Book this scooter', new_scooter_booking_path(scooter), class: "buy--btn" unless scooter.user == current_user %>
+      </div>
+      </div>
 		</div>
-	</div>
-	<div class="product__info">
+    	<div class="product__info">
 		<div class="title">
 			<h1><%= scooter.model %></h1>
 		</div>
 		<div class="price">
-			<span> Price</span>
+			$<span><%= scooter.price %></span> / d
 		</div>
-		<div class="description">
-			<h3>Description</h3>
-			<ul>
-				<li>Description 1</li>
-				<li>Description 2</li>
-				<li>Description 3</li>
-				<li>Description 4</li>
-			</ul>
-		</div>
-		<button class="buy--btn">ADD TO CART</button>
 	</div>
+	</div>
+    <% end %>
 </section>
