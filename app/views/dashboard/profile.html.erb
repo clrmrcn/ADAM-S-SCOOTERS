@@ -69,45 +69,67 @@
 </main>
 
 <div class="content-container">
-    <div id="reservations" class="tab_content">
-      <h1>Accept or decline those bookings</h1>
-      <p><%= 'No reservations pending' if @bookings_demands.empty? %></p>
-      <% @bookings_demands.each do |booking| %>
-        <li>
-          <span>Booking for <%= booking.scooter.model %></span>
-          <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
-          <span>Status: <%= booking.status %></span>
-          <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-primary" if booking.status != 'Accepted'%>
-          <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"  if booking.status != 'Declined'%>
-        </li>
-      <% end %>
-    </div>
+  <div id="reservations" class="tab_content">
+    <h1>Accept or decline those bookings</h1>
+    <p><%= 'No reservations pending' if @bookings_demands.empty? %></p>
+    <% @bookings_demands.each do |booking| %>
+      <li>
+        <span>Booking for <%= booking.scooter.model %></span>
+        <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
+        <span>Status: <%= booking.status %></span>
+        <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-primary" if booking.status != 'Accepted'%>
+        <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"  if booking.status != 'Declined'%>
+      </li>
+    <% end %>
+  </div>
 
-    <div id="requests" class="tab_content no_show">
-      <h1>Here are the requests you made</h1>
-      <p><%= "You haven't made any requests yet" if @bookings_requests.empty?%></p>
-      <p><%= link_to 'Discover our scooters', scooters_path, class: "btn btn-primary" if @bookings_requests.empty?%></p>
+  <div id="requests" class="tab_content no_show">
+    <h1>Here are the requests you made</h1>
+    <% if @bookings_requests.empty? %>
+      <p><%= "You haven't made any requests yet"%></p>
+      <p><%= link_to 'Discover our scooters', scooters_path, class: "btn btn-primary"%></p>
+    <% end %>
 
-      <% @bookings_requests.each do |request| %>
-        <li>
-          <span>Booking for <%= request.scooter.model %></span>
-          <span>From <%= request.start_date %> to <%= request.end_date %></span>
-          <span>Status: <%= request.status %></span>
-          <%= link_to 'Cancel', booking_path(request), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
-        </li>
-      <% end %>
-    </div>
+    <% @bookings_requests.each do |request| %>
+      <li>
+        <span>Booking for <%= request.scooter.model %></span>
+        <span>From <%= request.start_date %> to <%= request.end_date %></span>
+        <span>Status: <%= request.status %></span>
+        <%= link_to 'Cancel', booking_path(request), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+      </li>
+    <% end %>
+  </div>
 
-    <div id="about" class="tab_content no_show">
-      <h1>hello about</h1>
-      <% @bookings_requests.each do |booking| %>
-        <li>
-          <span>Booking for <%= booking.scooter.model %></span>
-          <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
-          <span>Status: <%= booking.status %></span>
-        </li>
-      <% end %>
-    </div>
+  <div id="about" class="tab_content no_show">
+    <h1>Your scooters</h1>
+    <% if @scooters.empty? %>
+      <p>
+        <%= "You currently don't have any scooter up to rent" %>
+        <%= link_to 'Add your first scooter', new_scooter_path, class: "btn btn-primary" %>
+      </p>
+    <% else  %>
+      <div class = "product-container">
+        <% @scooters.each do |scooter| %>
+          <div class="card-product">
+            <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>
+            <div class="card-product-infos col-12 col-md-6 col-lg-4 col-xl-4">
+              <%= link_to scooter_path(scooter) do %>
+                <h2><%= scooter.model %></h2> <small>$<%= scooter.price %> a day</small>
+              <% end %>
+            </div>
+            <div class="link-wrap">
+              <%= link_to 'Edit', edit_scooter_path(scooter), class: 'buy--btn'%>
+              <%= link_to 'Remove', scooter_path(scooter),
+                method: :delete,
+                data: {confirm: 'Are you sure?'},
+                class: 'buy--btn' if scooter.user == current_user
+              %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <script>
