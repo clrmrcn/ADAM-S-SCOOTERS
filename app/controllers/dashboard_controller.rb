@@ -2,15 +2,11 @@ class DashboardController < ApplicationController
   def profile
     authorize :dashboard, :profile
     @user = current_user
-    @bookings = @user.bookings
+    @bookings_requests = @user.bookings
     @bookings_demands = []
-    @bookings_requests = []
+    @bookings = Booking.all
     @bookings.each do |booking|
-      if booking.scooter.user == @user
-        @bookings_demands << booking
-      else
-        @bookings_requests << booking
-      end
+      @bookings_demands << booking if booking.scooter.user == @user
     end
   end
 end
