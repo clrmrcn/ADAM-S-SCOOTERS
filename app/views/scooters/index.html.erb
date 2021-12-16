@@ -4,7 +4,7 @@
    <% @scooters.each do |scooter|  %>
       <div class="card-product">
        <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>
-        <div class="card-product-infos">
+        <div class="card-product-infos col-12 col-md-6 col-lg-4 col-xl-4">
         <%= link_to scooter_path(scooter) do %>
           <h2><%= scooter.model %></h2> <small>$<%= scooter.price %> a day</small>
           <% end %>
