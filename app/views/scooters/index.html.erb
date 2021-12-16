@@ -31,17 +31,18 @@
         </div>
       </div>
     <% end %>
-  </div>
-  <div class= "button-add">
+       </div>
+         <div id="map"
+          style="width: 100%; height: 400px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+       </div>
+    <div class= "button-add">
     <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
   </div>
  </div>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+
 
 
 
