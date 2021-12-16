@@ -47,15 +47,15 @@ require 'faker'
    user5 = User.new(email: "bubu@gmail.com", password: "azerty", username: "bubu")
     user5.save
       scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user5.id, price:15 , available: Date.today + 2.days, address:'17 Rue Henry Cousinou,Marseille')
-   scooter5 = File.open('app/assets/images/scooter10.jpeg')
-   scooters.photo.attach(io: scooter5, filename: 'scooter10.jpeg', content_type: 'image/jpeg')
+   scooter5 = File.open('app/assets/images/scooter8.jpg')
+   scooters.photo.attach(io: scooter5, filename: 'scooter8.jpg', content_type: 'image/jpg')
    scooters.save
 
    user6 = User.new(email: "bzbz@gmail.com", password: "azerty", username: "bzbz")
     user6.save
       scooters = Scooter.new(model: Faker::Vehicle.manufacture, description: Faker::Lorem.paragraph, user_id: user6.id, price:14 , available: Date.today + 1.days, address:'44 Avenue du Prado,Marseille' )
-   scooter6 = File.open('app/assets/images/scooter8.jpeg')
-   scooters.photo.attach(io: scooter6, filename: 'scooter8.jpeg', content_type: 'image/jpeg')
+   scooter6 = File.open('app/assets/images/scooter1.jpeg')
+   scooters.photo.attach(io: scooter6, filename: 'scooter1.jpeg', content_type: 'image/jpeg')
    scooters.save
 
     # users = User.new(email: Faker::Internet.email, password: Faker::Lorem.words(number: 7), username: Faker::FunnyName.unique.name)
