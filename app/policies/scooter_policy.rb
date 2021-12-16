@@ -20,4 +20,8 @@ class ScooterPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def own?
+    record.all? { |scooter| scooter.user == user }
+  end
 end

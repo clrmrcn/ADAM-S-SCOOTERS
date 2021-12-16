@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Here are your scooter adds</h1>
+  <% if @scooters.empty? %>
+    <p>
+      <%= "You currently don't have any scooter up to rent" %>
+      <%= link_to 'Add your first scooter', new_scooter_path, class: "btn btn-primary" %>
+    </p>
+  <% else  %>
+    <% @scooters.each do |scooter| %>
+      <div class="card-trip col-6 col-md-4 col-lg-4">
+        <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to "#{scooter.model}", scooter_path(scooter) %></h2>
+            <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
+              <strong>Rented by :</strong><%= scooter.user.username %> <br>
+              <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %>
+            </p>
+            <%= link_to 'Edit', edit_scooter_path(scooter), class: "btn btn-primary" %>
+            <%= link_to 'Remove', scooter_path(scooter),
+                        method: :delete,
+                        data: {confirm: 'Are you sure?'},
+                        class: "btn btn-danger"
+            %>
+          </div>
+          <h2 class="card-trip-pricing"><%= scooter.price %>€/J</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    <% end %>
+    <div>
+    <%= link_to 'Add another scooter', new_scooter_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

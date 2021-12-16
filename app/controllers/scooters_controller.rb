@@ -2,7 +2,7 @@ class ScootersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @scooters = policy_scope(Scooter)
+    @scooters = policy_scope(Scooter).where.not(user: current_user)
     @markers = @scooters.geocoded.map do |scooter|
         {
         lat: scooter.latitude,
@@ -60,6 +60,11 @@ class ScootersController < ApplicationController
     authorize @scooter
     @scooter.destroy
     redirect_to scooters_path
+  end
+
+  def own
+    @scooters = Scooter.where(user: current_user)
+    authorize @scooters
   end
 
   private
