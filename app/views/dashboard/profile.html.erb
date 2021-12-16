@@ -69,33 +69,33 @@
 </main>
 
 <div class="content-container">
-      <div id="reservations" class="tab_content">
-      <div class="reservations">
-         <h1>hello</h1>
-      </div>
-        <% @bookings_demands.each do |booking| %>
-      <li>
-        <span>Booking for <%= booking.scooter.model %></span>
-        <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
-        <span>Status: <%= booking.status %></span>
-        <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} if booking.status != 'Accepted'%>
-        <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'} if booking.status != 'Declined'%>
-      </li>
-  <% end %>
-    </div>
-        <div id="requests" class="tab_content no_show">
-        <h1>hello requests</h1>
-          <% @bookings_requests.each do |booking| %>
+    <div id="reservations" class="tab_content">
+      <h1>hello</h1>
+      <% @bookings_demands.each do |booking| %>
         <li>
           <span>Booking for <%= booking.scooter.model %></span>
           <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
           <span>Status: <%= booking.status %></span>
+          <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-primary" if booking.status != 'Accepted'%>
+          <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"  if booking.status != 'Declined'%>
         </li>
       <% end %>
     </div>
-         <div id="about" class="tab_content no_show">
-        <h1>hello about</h1>
-          <% @bookings_requests.each do |booking| %>
+
+    <div id="requests" class="tab_content no_show">
+      <h1>Here are the requests you made</h1>
+      <% @bookings_requests.each do |request| %>
+        <li>
+          <span>Booking for <%= request.scooter.model %></span>
+          <span>From <%= request.start_date %> to <%= request.end_date %></span>
+          <span>Status: <%= request.status %></span>
+        </li>
+      <% end %>
+    </div>
+
+    <div id="about" class="tab_content no_show">
+      <h1>hello about</h1>
+      <% @bookings_requests.each do |booking| %>
         <li>
           <span>Booking for <%= booking.scooter.model %></span>
           <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
