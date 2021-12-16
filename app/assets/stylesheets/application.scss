@@ -17,6 +17,7 @@
 @import "pages/button";
 @import "pages/card";
 @import "pages/footer";
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 
 body {
   background-color: white;
