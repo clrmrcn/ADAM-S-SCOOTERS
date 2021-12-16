@@ -70,7 +70,8 @@
 
 <div class="content-container">
     <div id="reservations" class="tab_content">
-      <h1>hello</h1>
+      <h1>Accept or decline those bookings</h1>
+      <p><%= 'No reservations pending' if @bookings_demands.empty? %></p>
       <% @bookings_demands.each do |booking| %>
         <li>
           <span>Booking for <%= booking.scooter.model %></span>
@@ -84,11 +85,15 @@
 
     <div id="requests" class="tab_content no_show">
       <h1>Here are the requests you made</h1>
+      <p><%= "You haven't made any requests yet" if @bookings_requests.empty?%></p>
+      <p><%= link_to 'Discover our scooters', scooters_path, class: "btn btn-primary" if @bookings_requests.empty?%></p>
+
       <% @bookings_requests.each do |request| %>
         <li>
           <span>Booking for <%= request.scooter.model %></span>
           <span>From <%= request.start_date %> to <%= request.end_date %></span>
           <span>Status: <%= request.status %></span>
+          <%= link_to 'Cancel', booking_path(request), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
         </li>
       <% end %>
     </div>
@@ -104,7 +109,7 @@
       <% end %>
     </div>
 </div>
-
+<%= console %>
 <script>
   const toggleContent = () => {
     const toggleTitle = event.currentTarget.innerHTML.toLowerCase()
