@@ -1,4 +1,28 @@
 
+<div class="container">
+  <h1><strong>Choose your scooter</strong></h1>
+  <div class="container_cards row w-100">
+    <% @scooters.each do |scooter| %>
+      <div class="card-trip col-6 col-md-4 col-lg-4">
+        <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-trip-infos">
+          <div>
+
+          <h2><strong><%= scooter.model %></strong></h2>
+          <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
+            <strong>Rented by :</strong><%= scooter.user.username %> <br>
+            <strong>Available from : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %> <br>
+            <strong>Address :</strong><%= scooter.address %>
+
+            <h2><%= link_to "#{scooter.model}", scooter_path(scooter) %></h2>
+            <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
+              <strong>Rented by :</strong><%= scooter.user.username %> <br>
+              <strong>Available from : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %>
+            </p>
+            <%= link_to 'Edit', edit_scooter_path(scooter), class: "btn btn-primary" if scooter.user == current_user %>
+            <%= link_to 'Remove', scooter_path(scooter),
+
+
 <div class="index_wrap">
   <div class="product-container">
    <% @scooters.each do |scooter|  %>
@@ -12,6 +36,7 @@
             <div class="link-wrap">
                     <%= link_to 'Edit', edit_scooter_path(scooter), class: 'buy--btn' if scooter.user == current_user %>
                   <%= link_to 'Remove', scooter_path(scooter),
+
                       method: :delete,
                     data: {confirm: 'Are you sure?'},
                     class: 'buy--btn' if scooter.user == current_user
