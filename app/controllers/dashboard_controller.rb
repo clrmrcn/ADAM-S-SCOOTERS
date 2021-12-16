@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
     authorize :dashboard, :profile
     @user = current_user
     @bookings_requests = @user.bookings
+    @scooters = Scooter.where(user: current_user)
     @bookings_demands = []
     @bookings = Booking.all
     @bookings.each do |booking|
