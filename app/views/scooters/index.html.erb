@@ -1,50 +1,30 @@
-<div class="container">
-  <h1><strong>Choice your scooter</strong></h1>
-  <div class="container_cards row w-100">
-    <% @scooters.each do |scooter| %>
-      <div class="card-trip col-6 col-md-4 col-lg-4">
-        <%= cl_image_tag scooter.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
 
-          <h2><strong><%= scooter.model %></strong></h2>
-          <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
-            <strong>Rented by :</strong><%= scooter.user.username %> <br>
-            <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %> <br>
-            <strong>Address :</strong><%= scooter.address %>
-
-            <h2><%= link_to "#{scooter.model}", scooter_path(scooter) %></h2>
-            <p> <strong>Descrtiption:</strong> <%= scooter.description %> <br>
-              <strong>Rented by :</strong><%= scooter.user.username %> <br>
-              <strong>Disponible a partir du : </strong> <%= scooter.available&.strftime("%d/%m/%Y") %>
-            </p>
-            <%= link_to 'Edit', edit_scooter_path(scooter), class: "btn btn-primary" if scooter.user == current_user %>
-            <%= link_to 'Remove', scooter_path(scooter),
+<div class="index_wrap">
+  <div class="product-container">
+   <% @scooters.each do |scooter|  %>
+      <div class="card-product">
+       <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>
+        <div class="card-product-infos">
+        <%= link_to scooter_path(scooter) do %>
+          <h2><%= scooter.model %></h2> <small>$<%= scooter.price %> a day</small>
+          <% end %>
+        </div>
+            <div class="link-wrap">
+                    <%= link_to 'Edit', edit_scooter_path(scooter), class: 'buy--btn' if scooter.user == current_user %>
+                  <%= link_to 'Remove', scooter_path(scooter),
                       method: :delete,
                     data: {confirm: 'Are you sure?'},
-                    class: "btn btn-danger" if scooter.user == current_user
+                    class: 'buy--btn' if scooter.user == current_user
             %>
-            <%= link_to 'Book this scooter', new_scooter_booking_path(scooter), class: "btn btn-primary" unless scooter.user == current_user %>
-          </div>
-          <h2 class="card-trip-pricing"><%= scooter.price %>€/J</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-        </div>
+                  <%= link_to 'Book this scooter', new_scooter_booking_path(scooter), class: 'buy--btn' unless scooter.user == current_user %>
+            </div>
       </div>
     <% end %>
   </div>
-  <div class= "button-add">
-    <%= link_to 'Add a new scooter', new_scooter_path, class: "btn btn-primary"%>
+  <div class="map-container">
+      <div id="map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   </div>
- </div>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-
-
-<% @scooters.each do |scooter|  %>
-  <%= render 'card', scooter: scooter %>
-<% end %>
