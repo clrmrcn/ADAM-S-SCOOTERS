@@ -12,6 +12,21 @@
   display: flex;
   align-items: center;
 }
+.footer-apps {
+  display: flex;
+  align-items: center;
+}
+.footer-apps a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 28px;
+  padding: 0px 10px;
+}
+.footer-apps a:hover {
+  opacity: 1;
+  color: #19cb7f;
+}
 .footer-links a {
   color: black;
   opacity: 0.15;
