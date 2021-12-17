@@ -28,7 +28,7 @@
 
 
 .card-product {
-    padding-bottom: 28px;
+    padding-bottom: 40px;
     width: 226px;
     overflow: hidden;
     background: white;
@@ -56,16 +56,20 @@
 }
 
 .card-product p {
-  font-size: 12px;
   line-height: 1.4;
-  opacity: .7;
+  opacity: 1;
   margin-bottom: 0;
   margin-top: 8px;
   color: #36b46d;
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: -39px;
 }
 
 .map-container {
@@ -93,6 +97,7 @@
   justify-content: space-around;
   min-height: calc(100vh - 154px);
   height: fit-content;
+  margin-top: 40px;
 }
 
 .index-container {
@@ -134,4 +139,65 @@ i {
 
 .header-wrap img {
   width: 300px;
+}
+
+.link-wrap {
+    color: #36b46d;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-right: 115px;
+    margin-top: 0px;
+    position: relative;
+    top: 18px;
+    right: 20px;
+}
+
+.fa-edit:before {
+    content: "\f044";
+    color: #36b46d;
+    font-size: 20px;
+}
+
+.fa-shopping-cart:before {
+    content: "\f07a";
+    color: #36b46d;
+    font-size: 20px;
+}
+
+.fa-trash-alt:before {
+    content: "\f2ed";
+    color: #36b46d;
+    font-size: 20px;
+}
+
+
+.fa-edit:before:hover {
+
+}
+
+.fa-shopping-cart:before:hover {
+
+}
+
+.fa-trash-alt:before:hover {
+
+}
+
+
+.user-wrapper {
+  color: grey;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+
+
+small, .small {
+  font-size: 80%;
+  font-weight: 400;
+  position: relative;
+  left: 67px;
 }

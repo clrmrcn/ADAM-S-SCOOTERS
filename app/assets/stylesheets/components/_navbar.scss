@@ -2,7 +2,6 @@
     text-decoration: none;
 }
 
-
 .navbar-lewagon {
   justify-content: space-between;
   position: sticky;
@@ -19,10 +18,12 @@
   flex-grow: 0;
 }
 
+
 .navbar-lewagon {
   background-color: black;
   transition: 0.2s background-color ease;
 }
+
 
 .nav-item {
   text-decoration: none;
@@ -36,6 +37,7 @@
 .navbar-light .navbar-nav .nav-link {
   text-decoration: none;
   color: #19cb7f;
+  font-weight: 500;
 }
 
 .navbar-lewagon .navbar-brand img {
