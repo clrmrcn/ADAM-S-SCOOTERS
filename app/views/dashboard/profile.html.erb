@@ -98,7 +98,7 @@
         <h1>Here are the requests you made</h1>
         <% if @bookings_requests.empty? %>
           <p><%= "You haven't made any requests yet"%></p>
-          <p><%= link_to 'Discover our scooters', scooters_path, class: "btn btn-primary"%></p>
+          <p><%= link_to 'Discover our scooters', scooters_path, class: "btn btn-success"%></p>
          <% end %>
 
   <div class="requests-profile-container">
@@ -129,7 +129,7 @@
     <% if @scooters.empty? %>
       <p>
         <%= "You currently don't have any scooter for rent" %>
-        <%= link_to 'Add your first scooter', new_scooter_path, class: "btn btn-primary" %>
+        <%= link_to 'Add your first scooter', new_scooter_path, class: "btn btn-success" %>
       </p>
     <% else  %>
         <div class="scooters-profile-container">
