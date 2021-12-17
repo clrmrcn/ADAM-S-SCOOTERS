@@ -487,3 +487,34 @@ footer {
   position: relative;
   left: 30px;
 }
+
+
+.show-container {
+    padding-bottom: 40px;
+    width: 226px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    /* height: 198px; */
+    border-radius: 10px;
+    margin: 10px 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+.show-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+    min-height: calc(100vh - 200px);
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 40px;
+}

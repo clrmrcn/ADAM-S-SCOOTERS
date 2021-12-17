@@ -1,22 +1,30 @@
-<div class="container">
-  <div>
-    <h1 class="d-flex justify-content-center">You're looking at <%= @scooter.model %></h1>
-    <div>
-      <p>
-      <%= @scooter.description %> <br>
-      <span>Rented by <%=@scooter.user.username%> at <%=@scooter.price%>€/day.</span> <br>
-      <span>Pick it up at <%=@scooter.address%></span>
-      </p>
-    </div>
-  </div>
+ <div class="model-container">
+        <h1 class="d-flex justify-content-center">You're looking at <%= @scooter.model %></h1>
+      </div>
 
 
-  <div class = 'form-add'>
-    <h3> When do you want to rent <%= @scooter.model%>?</h3>
-    <%= simple_form_for([@scooter, @booking]) do |f| %>
-      <%= f.input :start_date  %>
-      <%= f.input :end_date  %>
-      <%= f.submit class: 'btn btn-success' %>
-    <% end %>
-  </div>
+<div class="show-wrapper">
+      <div class="show-container">
+          <%= cl_image_tag @scooter.photo.key, height: 200, width: 200, crop: :fill%>
+          <div>
+
+            <p>Description :   <%= @scooter.description %></p>
+            <br>
+            <span>Rented by :<%=@scooter.user.username%> at <%=@scooter.price%>€/day.</span>
+            <br>
+            <br>
+            <span>Pick it up at: <%=@scooter.address%></span>
+          </div>
+        </div>
+      <div>
+
+        <div class = 'form-add'>
+          <h3> When do you want to rent <%= @scooter.model%>?</h3>
+          <%= simple_form_for([@scooter, @booking]) do |f| %>
+            <%= f.input :start_date  %>
+            <%= f.input :end_date  %>
+            <%= f.submit class: 'btn btn-success' %>
+          <% end %>
+        </div>
+      </div>
 </div>
