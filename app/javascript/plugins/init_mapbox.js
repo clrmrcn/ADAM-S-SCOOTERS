@@ -16,6 +16,7 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+      popup.addClassName('info-window-poppup');
       const element = document.createElement('div');
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
@@ -37,7 +38,7 @@ const initMapbox = () => {
     };
 
       fitMapToMarkers(map, markers);
-      
+
     map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
