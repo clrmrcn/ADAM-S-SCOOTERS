@@ -60,7 +60,7 @@
         <div id="ufo-about" class="ufo-bar2-col6 ufo-bar2-block">
             <div class="ufo-bar2-col6-inner flexbox">
                 <span><i class="uil uil-user"></i></span>
-                <h3 onClick="toggleContent()" data-class="about-description">About</h3>
+                <h3 onClick="toggleContent()" data-class="scooters-description">Scooters</h3>
             </div>
         </div>
         <div class="ufo-bar2-col7">
@@ -68,7 +68,6 @@
     </div>
 </main>
 
-<div class="content-container">
   <div id="reservations" class="tab_content">
     <h1>Accept or decline those bookings</h1>
     <p><%= 'No reservations pending' if @bookings_demands.empty? %></p>
@@ -100,37 +99,47 @@
     <% end %>
   </div>
 
-  <div id="about" class="tab_content no_show">
-    <h1>Your scooters</h1>
+
+
+
+  <div id="scooters" class="tab_content no_show">
+    <img class= "profile-img" src="https://i.pinimg.com/originals/54/7a/6d/547a6dc5c5f9abd2c29a5fc6c710b262.gif" alt="">
+        <h1>Your scooters</h1>
     <% if @scooters.empty? %>
       <p>
         <%= "You currently don't have any scooter up to rent" %>
         <%= link_to 'Add your first scooter', new_scooter_path, class: "btn btn-primary" %>
       </p>
     <% else  %>
-      <div class = "product-container">
-        <% @scooters.each do |scooter| %>
-          <div class="card-product">
-            <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>
-            <div class="card-product-infos col-12 col-md-6 col-lg-4 col-xl-4">
-              <%= link_to scooter_path(scooter) do %>
-                <h2><%= scooter.model %></h2> <small>$<%= scooter.price %> a day</small>
-              <% end %>
-            </div>
-            <div class="link-wrap">
-              <%= link_to 'Edit', edit_scooter_path(scooter), class: 'buy--btn'%>
-              <%= link_to 'Remove', scooter_path(scooter),
-                method: :delete,
-                data: {confirm: 'Are you sure?'},
-                class: 'buy--btn' if scooter.user == current_user
-              %>
-            </div>
+        <div class="scooters-profile-container">
+              <% @scooters.each do |scooter|  %>
+                  <div class="card-product">
+                  <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>
+                    <div class="card-product-infos col-12 col-md-6 col-lg-4 col-xl-4">
+                    <%= link_to scooter_path(scooter) do %>
+                      <h2><%= scooter.model %></h2>
+                      <% end %>
+
+                  </div>
+                          <p>$<%= scooter.price %> a day</p>
+                    <div class="link-wrap">
+                    <div class="wrapper-infos">
+                  <%= link_to '', scooter_path(scooter), class: 'fas fa-shopping-cart' unless scooter.user == current_user %>
+
+
+                  <%= link_to '' , edit_scooter_path(scooter), class: 'fas fa-edit' if scooter.user == current_user %>
+                  <%= link_to '', scooter_path(scooter),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'},
+                    class: 'far fa-trash-alt' if scooter.user == current_user
+                  %>
+         </div>
+       </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
-</div>
 
 <script>
   const toggleContent = () => {
