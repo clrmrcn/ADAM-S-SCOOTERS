@@ -16,11 +16,12 @@
         <%= link_to scooter_path(scooter) do %>
           <h2><%= scooter.model %></h2>
           <% end %>
+
       </div>
                <p>$<%= scooter.price %> a day</p>
          <div class="link-wrap">
          <div class="wrapper-infos">
-                  <%= link_to '', new_scooter_booking_path(scooter), class: 'fas fa-shopping-cart' unless scooter.user == current_user %>
+                  <%= link_to '', scooter_path(scooter), class: 'fas fa-shopping-cart' unless scooter.user == current_user %>
 
 
                   <%= link_to '' , edit_scooter_path(scooter), class: 'fas fa-edit' if scooter.user == current_user %>

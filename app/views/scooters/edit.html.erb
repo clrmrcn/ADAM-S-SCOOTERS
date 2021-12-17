@@ -1,9 +1,11 @@
 <div class="container">
    <div class="col-6 m-auto">
-    <h1> Edit a scooter </h1>
+    <h1> Edit your scooter <%= @scooter.model %> </h1>
     <%= simple_form_for(@scooter) do |f| %>
       <%= f.input :model %>
       <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :address, label: "address", input_html: { id: "scooter_address"} %>
       <%= f.input :photo, as: :file %>
       <%= f.submit %>
     <% end %>
