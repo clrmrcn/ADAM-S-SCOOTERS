@@ -1,5 +1,22 @@
 <div class="container">
-  <h1>You're looking at <%= @scooter.model %></h1>
-  <%= @scooter.description %>
-  <%= link_to 'Book this scooter', new_scooter_booking_path(@scooter) %>
+  <div>
+    <h1 class="d-flex justify-content-center">You're looking at <%= @scooter.model %></h1>
+    <div>
+      <p>
+      <%= @scooter.description %> <br>
+      <span>Rented by <%=@scooter.user.username%> at <%=@scooter.price%>€/day.</span> <br>
+      <span>Pick it up at <%=@scooter.address%></span>
+      </p>
+    </div>
+  </div>
+
+
+  <div>
+    <h3> When do you want to rent <%= @scooter.model%>?</h3>
+    <%= simple_form_for([@scooter, @booking]) do |f| %>
+      <%= f.input :start_date  %>
+      <%= f.input :end_date  %>
+      <%= f.submit class: 'btn btn-success' %>
+    <% end %>
+  </div>
 </div>
