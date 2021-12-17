@@ -1,3 +1,9 @@
-<h2><%= scooter.model %></h2>
+
+<div class="container-window">
+<%= link_to scooter_path(scooter) do  %>
+ <h2><%= scooter.model %></h2>
+<% end %>
 <p><%= scooter.address %></p>
-<%= cl_image_tag scooter.photo.key, height: 150, width: 200, crop: :fill %>
+<%= cl_image_tag scooter.photo.key, height: 250, width: 200, crop: :fill %>
+
+</div>

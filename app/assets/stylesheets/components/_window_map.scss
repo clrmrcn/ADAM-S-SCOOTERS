@@ -1,0 +1,31 @@
+.container-window {
+  transform-style: preserve-3d;
+
+
+  h2 {
+    color:#19cb7f;
+  }
+  p {
+    color: #19cb7f;
+  }
+
+}
+
+// .container-window:hover {
+// box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+// }
+
+
+// .info-window-poppup {
+//   border-radius: 15px;
+
+
+.mapboxgl-popup-content {
+  border-radius: 15px !important;
+
+}
+
+.mapboxgl-popup-content:hover{
+  box-shadow: rgba(50, 50, 93, 0) 0px 30px 60px -12px inset, #19cb7f 0px 18px 36px -18px inset;
+
+}
