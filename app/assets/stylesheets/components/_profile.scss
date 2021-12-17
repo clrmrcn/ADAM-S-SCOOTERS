@@ -471,3 +471,19 @@ footer {
     content: "\f00d";
     color: red;
 }
+
+.form-container {
+    display: flex;
+    border: 1px black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 30px; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.banner-image {
+  position: relative;
+  left: 30px;
+}
