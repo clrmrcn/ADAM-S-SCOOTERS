@@ -4,7 +4,7 @@ class ScootersController < ApplicationController
   def index
     @scooters = policy_scope(Scooter)
     @markers = @scooters.geocoded.map do |scooter|
-        {
+      {
         lat: scooter.latitude,
         lng: scooter.longitude,
         info_window: render_to_string(partial: "info_window", locals: { scooter: scooter }),

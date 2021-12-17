@@ -1,6 +1,6 @@
 
 <div class="header-wrap">
-    <img src="https://cdn.dribbble.com/users/1429/screenshots/18843/media/9c93d6eb48cc219304a055c09ae3b4b8.png?compress=1&resize=400x300" alt="">   <h1>( <em>you can rent your scooter a little lower </em> 😱 )</h1>
+    <img src="https://cdn.dribbble.com/users/1429/screenshots/18843/media/9c93d6eb48cc219304a055c09ae3b4b8.png?compress=1&resize=400x300" alt="">   <h1>( <em>you can rent your scooter here, check below </em> 👇 😱)</h1>
 </div>
 
 <div class="animated-gif">
@@ -8,7 +8,7 @@
 </div>
 
 <div class="index_wrap">
-  <div class="product-container col-12 col-md-4 col-lg-6">
+  <div class="product-container">
    <% @scooters.each do |scooter|  %>
       <div class="card-product">
        <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>

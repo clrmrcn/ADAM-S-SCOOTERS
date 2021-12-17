@@ -64,7 +64,7 @@
 }
 
 .no_show {
-  display: none;
+  display: none!important;
   visibility: hidden;
   opacity: 0;
 }
@@ -376,4 +376,98 @@ footer {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+}
+
+.card-product-infos {
+  display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+
+.fa-ban:before {
+    content: "\f05e";
+    color: red;
+}
+
+.wrapper-image-infos {
+    padding-bottom: 40px;
+    width: 226px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    /* height: 198px; */
+    border-radius: 10px;
+    margin: 10px 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+#requests {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+
+#requests > img {
+    vertical-align: middle;
+    border-style: none;
+    border-radius: 50%;
+    width: 500px;
+}
+
+#reservations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#reservations > img {
+    vertical-align: middle;
+    border-style: none;
+    border-radius: 50%;
+}
+
+
+.reservations-profile-container {
+    padding-bottom: 40px;
+    width: 226px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    /* height: 198px; */
+    border-radius: 10px;
+    margin: 10px 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+.requests-profile-container {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    grid-gap: 30px;
+}
+
+.fa-check:before {
+    content: "\f00c";
+    color: #19c97d;
+}
+
+.fa-times:before {
+    content: "\f00d";
+    color: red;
 }

@@ -68,36 +68,53 @@
     </div>
 </main>
 
-  <div id="reservations" class="tab_content">
+<div id="reservations" class="tab_content">
+  <img src="http://caliken.fr/wp-content/uploads/2020/10/giphy.gif" alt="">
     <h1>Accept or decline those bookings</h1>
-    <p><%= 'No reservations pending' if @bookings_demands.empty? %></p>
-    <% @bookings_demands.each do |booking| %>
-      <li>
-        <span>Booking for <%= booking.scooter.model %></span>
-        <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
-        <span>Status: <%= booking.status %></span>
-        <%= link_to 'Accept', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-primary" if booking.status != 'Accepted'%>
-        <%= link_to 'Decline', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "btn btn-danger"  if booking.status != 'Declined'%>
-      </li>
-    <% end %>
-  </div>
+          <p><%= 'No reservations pending' if @bookings_demands.empty? %></p>
+             <div class="reservations-profile-container">
+          <% @bookings_demands.each do |booking| %>
+              <%= cl_image_tag booking.scooter.photo.key, height: 200, width: 200, crop: :fill%>
+              <span>Booking for <%= booking.scooter.model %></span>
+              <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
+              <span>Status: <%= booking.status %></span>
+                <div class="accept-decline">
+                  <%= link_to '', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "fas fa-check" if booking.status != 'Accepted'%>
+                  <%= link_to '', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "fas fa-times"  if booking.status != 'Declined'%>
+                </div>
+          <% end %>
+        </div>
+    </div>
+
+
+
 
   <div id="requests" class="tab_content no_show">
-    <h1>Here are the requests you made</h1>
-    <% if @bookings_requests.empty? %>
-      <p><%= "You haven't made any requests yet"%></p>
-      <p><%= link_to 'Discover our scooters', scooters_path, class: "btn btn-primary"%></p>
-    <% end %>
+    <img src="https://cdn.dribbble.com/users/3232186/screenshots/6127852/gif-2-trotinette-dribbble.gif" alt="">
+        <h1>Here are the requests you made</h1>
+        <% if @bookings_requests.empty? %>
+          <p><%= "You haven't made any requests yet"%></p>
+          <p><%= link_to 'Discover our scooters', scooters_path, class: "btn btn-primary"%></p>
+         <% end %>
 
-    <% @bookings_requests.each do |request| %>
-      <li>
-        <span>Booking for <%= request.scooter.model %></span>
-        <span>From <%= request.start_date %> to <%= request.end_date %></span>
-        <span>Status: <%= request.status %></span>
-        <%= link_to 'Cancel', booking_path(request), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
-      </li>
-    <% end %>
+  <div class="requests-profile-container">
+      <% @bookings_requests.each do |request| %>
+        <div class="wrapper-image-infos">
+          <div class="card-profile-info">
+              <%= cl_image_tag request.scooter.photo.key, height: 200, width: 200, crop: :fill%>
+          </div>
+              <div class="card-profile-info">
+                    <span>Booking for <%= request.scooter.model %></span>
+                    <span>From <%= request.start_date %> </span>
+                    <span>To <%= request.end_date %></span>
+
+                    <span>Status: <%= request.status %></span>
+                    <%= link_to '', booking_path(request), method: :delete, data: {confirm: 'Are you sure?'}, class: "fas fa-ban" %>
+              </div>
+           </div>
+      <% end %>
   </div>
+</div>
 
 
 
@@ -107,7 +124,7 @@
         <h1>Your scooters</h1>
     <% if @scooters.empty? %>
       <p>
-        <%= "You currently don't have any scooter up to rent" %>
+        <%= "You currently don't have any scooter for rent" %>
         <%= link_to 'Add your first scooter', new_scooter_path, class: "btn btn-primary" %>
       </p>
     <% else  %>
@@ -122,24 +139,27 @@
 
                   </div>
                           <p>$<%= scooter.price %> a day</p>
-                    <div class="link-wrap">
-                    <div class="wrapper-infos">
+                  <div class="link-wrap">
+                  <div class="wrapper-infos">
                   <%= link_to '', scooter_path(scooter), class: 'fas fa-shopping-cart' unless scooter.user == current_user %>
-
-
                   <%= link_to '' , edit_scooter_path(scooter), class: 'fas fa-edit' if scooter.user == current_user %>
                   <%= link_to '', scooter_path(scooter),
                     method: :delete,
                     data: {confirm: 'Are you sure?'},
                     class: 'far fa-trash-alt' if scooter.user == current_user
                   %>
-         </div>
-       </div>
+                </div>
+              </div>
           </div>
         <% end %>
       </div>
     <% end %>
-  </div>
+</div>
+
+
+
+
+
 
 <script>
   const toggleContent = () => {
@@ -150,6 +170,6 @@
       header.classList.add('no_show')
     })
     const toShow = document.getElementById(toggleTitle)
-    toShow.classList.remove('no_show')
+      toShow.classList.remove('no_show')
   }
 </script>

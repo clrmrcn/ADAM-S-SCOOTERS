@@ -188,3 +188,24 @@ small, .small {
   position: relative;
   left: 67px;
 }
+.form-container {
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+   a {
+     color: #36b46d;
+   }
+}
+
+.container {
+  display: flex;
+  border: 1px black;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.btn-success {
+  color: white
+}
