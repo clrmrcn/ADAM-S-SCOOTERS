@@ -29,8 +29,8 @@ class ScootersController < ApplicationController
     @user = current_user
     @scooter.user = @user
     authorize @scooter
-    if @scooter.save!
-      redirect_to scooters_path
+    if @scooter.save
+      redirect_to scooters_path, notice: "#{@scooter.model} has just been added."
     else
       render 'new'
     end
@@ -48,8 +48,7 @@ class ScootersController < ApplicationController
     @scooter = Scooter.find(params[:id])
     authorize @scooter
     if @scooter.update(scooter_params)
-      flash[:success] = "Scooter updated !"
-      redirect_to scooters_path
+      redirect_to scooters_path, notice: "#{@scooter.model} has just been updated."
     else
       render action: :edit
     end

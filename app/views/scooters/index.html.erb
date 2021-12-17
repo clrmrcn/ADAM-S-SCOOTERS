@@ -19,12 +19,12 @@
         </div>
             <div class="link-wrap">
                     <%= link_to 'Edit', edit_scooter_path(scooter), class: 'buy--btn' if scooter.user == current_user %>
-                  <%= link_to 'Remove', scooter_path(scooter),
+                    <%= link_to 'Remove', scooter_path(scooter),
                       method: :delete,
-                    data: {confirm: 'Are you sure?'},
-                    class: 'buy--btn' if scooter.user == current_user
-            %>
-                  <%= link_to 'Book this scooter', new_scooter_booking_path(scooter), class: 'buy--btn' unless scooter.user == current_user %>
+                      data: {confirm: 'Are you sure?'},
+                      class: 'buy--btn' if scooter.user == current_user
+                    %>
+                  <%= link_to 'Book this scooter', scooter_path(scooter), class: 'buy--btn' unless scooter.user == current_user %>
             </div>
       </div>
     <% end %>
