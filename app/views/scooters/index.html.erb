@@ -1,6 +1,6 @@
 
 <div class="header-wrap">
-    <img src="https://cdn.dribbble.com/users/1429/screenshots/18843/media/9c93d6eb48cc219304a055c09ae3b4b8.png?compress=1&resize=400x300" alt="">   <h1>( <em>you can rent your scooter here</em> 😱 )</h1>
+    <img src="https://cdn.dribbble.com/users/1429/screenshots/18843/media/9c93d6eb48cc219304a055c09ae3b4b8.png?compress=1&resize=400x300" alt="">   <h1>( <em>you can rent your scooter a little lower </em> 😱 )</h1>
 </div>
 
 <div class="animated-gif">
@@ -8,28 +8,41 @@
 </div>
 
 <div class="index_wrap">
-  <div class="product-container">
+  <div class="product-container col-12 col-md-4 col-lg-6">
    <% @scooters.each do |scooter|  %>
       <div class="card-product">
        <%= cl_image_tag scooter.photo.key, height: 200, width: 200, crop: :fill %>
         <div class="card-product-infos col-12 col-md-6 col-lg-4 col-xl-4">
         <%= link_to scooter_path(scooter) do %>
-          <h2><%= scooter.model %></h2> <small>$<%= scooter.price %> a day</small>
+          <h2><%= scooter.model %></h2>
           <% end %>
-        </div>
-            <div class="link-wrap">
-                    <%= link_to 'Edit', edit_scooter_path(scooter), class: 'buy--btn' if scooter.user == current_user %>
-                    <%= link_to 'Remove', scooter_path(scooter),
-                      method: :delete,
-                      data: {confirm: 'Are you sure?'},
-                      class: 'buy--btn' if scooter.user == current_user
-                    %>
-                  <%= link_to 'Book this scooter', scooter_path(scooter), class: 'buy--btn' unless scooter.user == current_user %>
-            </div>
+
+      </div>
+               <p>$<%= scooter.price %> a day</p>
+         <div class="link-wrap">
+         <div class="wrapper-infos">
+                  <%= link_to '', scooter_path(scooter), class: 'fas fa-shopping-cart' unless scooter.user == current_user %>
+
+
+                  <%= link_to '' , edit_scooter_path(scooter), class: 'fas fa-edit' if scooter.user == current_user %>
+                  <%= link_to '', scooter_path(scooter),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'},
+                    class: 'far fa-trash-alt' if scooter.user == current_user
+                  %>
+         </div>
+       </div>
+          <div class="user-wrapper">
+              <% if scooter.user == current_user %>
+                    <small> Rented by you </small>
+                  <% else %>
+                    <small>Rented by <%= scooter.user.username %></small>
+              <% end %>
+          </div>
       </div>
     <% end %>
-
   </div>
+
   <div class="map-container">
       <div id="map"
           data-markers="<%= @markers.to_json %>"
