@@ -78,10 +78,14 @@
               <span>Booking for <%= booking.scooter.model %></span>
               <span>From <%= booking.start_date %> to <%= booking.end_date %></span>
               <span>Status: <%= booking.status %></span>
+              <% if booking.status == 'Pending' %>
                 <div class="accept-decline">
                   <%= link_to '', accept_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "fas fa-check" if booking.status != 'Accepted'%>
                   <%= link_to '', decline_booking_path(booking), method: :patch, data: {confirm: 'Are you sure?'}, class: "fas fa-times"  if booking.status != 'Declined'%>
                 </div>
+              <% else %>
+                <%= link_to '', booking_path(booking), method: :delete, data: {confirm: 'Are you sure?'}, class: "fas fa-ban" %>
+              <% end %>
           <% end %>
         </div>
     </div>
